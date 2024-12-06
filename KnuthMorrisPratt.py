@@ -48,6 +48,9 @@ class KnuthMorrisPratt:
         print(f"Funzione prefisso (π) per il pattern '{self.pattern}': {self.pi}")
 
     def run_tests():
+        """
+    Esegue una serie di test sull'algoritmo Knuth-Morris-Pratt.
+    """
         tests = [
             {"pattern": "ababaca", "text": "ababcabababaca", "expected": [6]},
         {"pattern": "abc", "text": "abcabcabc", "expected": [0, 3, 6]},
