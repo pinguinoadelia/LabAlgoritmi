@@ -21,6 +21,12 @@ class NaiveStringMatching:
         else:
             print(f"Il pattern '{self.pattern}' non è stato trovato nel testo")    
 
+    if __name__ == "__main__":
+        text = "acaabc"
+        pattern = "aab"
+        matcher = NaiveStringMatching(text, pattern)
+        matcher.display_matches()        
+
     
 
 
