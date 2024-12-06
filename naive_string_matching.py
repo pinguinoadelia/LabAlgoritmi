@@ -56,6 +56,26 @@ class NaiveStringMatching:
         matcher = NaiveStringMatching(text, pattern) 
         matcher.display_matches()       
     
+    @staticmethod
+    def run_tests():
+        test_cases = [
+         {"text": "a" * 1000 + "b", "pattern": "a" * 500 + "b", "expected": [500]},
+         {"text": "abc" * 100, "pattern": "abcabc", "expected": [0, 3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78, 81, 84, 87, 90, 93, 96]},
+         {"text": "abacababacab" * 10, "pattern": "abacab", "expected": [2, 10, 22, 30, 42, 50, 62, 70, 82, 90]},
+         {"text": "aaaaaa", "pattern": "aaa", "expected": [0, 1, 2, 3]},
+         {"text": "hello world", "pattern": "test", "expected": []},
+        ]
+        print("\nEsecuzione test:\n")
+        for i, test in enumerate(test_cases):
+            matcher = NaiveStringMatching(test["text"], test["pattern"])
+            result = matcher.find_pattern()
+            print(f"Test {i + 1}: ", end = "")
+            if result == test["expected"]:
+                print("Successo")
+            else:
+                print("Fallimento")
+                print(f" Risultato ottenuto: {result}")
+                print(f" Risultato atteso: {test['expected']}")   
 
 
 
