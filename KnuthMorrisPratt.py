@@ -29,8 +29,10 @@ class KnuthMorrisPratt:
             if q == m:
                 matches.append(i - m + 1)
                 q = self.pi[q - 1]
-        return matches        
+        return matches     
 
+    def print_prefix_function(self):
+        print(f"Funzione prefisso (π) per il pattern '{self.pattern}': {self.pi}")
     
           
 
