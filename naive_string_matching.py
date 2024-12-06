@@ -47,6 +47,9 @@ class NaiveStringMatching:
 
     @staticmethod
     def run_tests():
+        """
+         Esegue una serie di test automatizzati su input più grandi e diversi.
+        """
         test_cases = [
          {"text": "a" * 1000 + "b", "pattern": "a" * 500 + "b", "expected": [500]},
          {"text": "abc" * 100, "pattern": "abcabc", "expected": [0, 3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78, 81, 84, 87, 90, 93, 96]},
