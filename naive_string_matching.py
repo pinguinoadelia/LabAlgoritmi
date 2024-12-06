@@ -45,17 +45,6 @@ class NaiveStringMatching:
         else:
             print(f"Il pattern '{self.pattern}' non è stato trovato nel testo")    
 
-    if __name__ == "__main__": 
-
-        """
-        Esempio di utilizzo:
-        Inizializza la classe con un testo e un pattern e mostra i risultati del matching.
-        """
-        text = "acaabc"
-        pattern = "aab"
-        matcher = NaiveStringMatching(text, pattern) 
-        matcher.display_matches()       
-    
     @staticmethod
     def run_tests():
         test_cases = [
@@ -75,7 +64,21 @@ class NaiveStringMatching:
             else:
                 print("Fallimento")
                 print(f" Risultato ottenuto: {result}")
-                print(f" Risultato atteso: {test['expected']}")   
+                print(f" Risultato atteso: {test['expected']}") 
+
+    if __name__ == "__main__": 
+        
+        """
+        Esempio di utilizzo:
+        Inizializza la classe con un testo e un pattern e mostra i risultati del matching.
+        """
+        text = "acaabc"
+        pattern = "aab"
+        matcher = NaiveStringMatching(text, pattern) 
+        matcher.display_matches()     
+        NaiveStringMatching.run_tests()
+    
+      
 
 
 
