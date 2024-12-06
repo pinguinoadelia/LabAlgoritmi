@@ -20,7 +20,7 @@ test_cases = [
 
 #Definizione delle funzioni
 
-def execute_naive(text: str, pattern: str):
+def execute_naive(text, pattern):
     """
     Esegue l'algoritmo di String Matching Ingenuo.
     Restituisce le posizioni delle occorrenze e il tempo di esecuzione in secondi.
@@ -31,16 +31,16 @@ def execute_naive(text: str, pattern: str):
     elapsed_time = time.time() - start_time
     return result, elapsed_time
 
-def execute_KMP(text: str, pattern:str):
+def execute_KMP(text, pattern):
     """
     Esegue l'algoritmo Knuth-Morris-Pratt (KMP).
-    Restituisce le posizioni delle occorrenze e il tempo di esecuzione in secondi.
     """
-    matcher = KnuthMorrisPratt(pattern)
+    matcher = KnuthMorrisPratt(pattern)  # Inizializza KMP
     start_time = time.time()
-    result = matcher.search(text)
+    result = matcher.search(text)       # Chiama il metodo search
     elapsed_time = time.time() - start_time
     return result, elapsed_time
+
 
 def run_tests(test_cases:list):
     """
