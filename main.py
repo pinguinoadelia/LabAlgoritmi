@@ -59,7 +59,7 @@ def run_tests(test_cases:list):
         print(f"Ingenuo - Posizioni: {naive_result}, Tempo: {naive_time:.6f} s")
 
         #Knuth-Morris-Pratt (KMP)
-        kmp_result, kmp_time = execute_KMP(text, pattern)
+        kmp_result, kmp_time = execute_kmp(text, pattern)
         print(f"KMP - Posizioni: {kmp_result}, Tempo: {kmp_time:.6f} s")
 
 # Programma principale
