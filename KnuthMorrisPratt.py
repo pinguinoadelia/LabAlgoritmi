@@ -47,6 +47,27 @@ class KnuthMorrisPratt:
         """
         print(f"Funzione prefisso (π) per il pattern '{self.pattern}': {self.pi}")
 
+    def run_tests():
+        tests = [
+            {"pattern": "ababaca", "text": "ababcabababaca", "expected": [6]},
+        {"pattern": "abc", "text": "abcabcabc", "expected": [0, 3, 6]},
+        {"pattern": "aaa", "text": "aaaaaa", "expected": [0, 1, 2, 3]},
+        {"pattern": "a", "text": "bbbb", "expected": []},
+        {"pattern": "xyz", "text": "abcdefgh", "expected": []},
+        {"pattern": "test", "text": "this is a test text with test cases", "expected": [10, 29]},
+        ]
+        for i,test in enumerate(tests, 1):
+            pattern = test["pattern"]
+            text = test["text"]
+            expected = test["expected"]
+            kmp = KnuthMorrisPratt(pattern)
+            result = kmp.search(text)
+            print(f"Test {i}: pattern '{pattern}' in testo '{text}'")
+            print(f"Risultato ottenuto: {result}")
+            print(f"Risultato atteso: {expected}")
+            print("Passato" if result == expected else "Fallito")
+            print("-" * 40)
+
     if __name__ == "__main__":
         """
         Esempio di utilizzo della classe KnuthMorrisPratt per il pattern matching.
@@ -57,6 +78,8 @@ class KnuthMorrisPratt:
         kmp.print_prefix_function
         matches = kmp.search(text)
         print(f"Il pattern è stato trovato alle posizioni: {matches}")
+        print("\nEsecuzione test\n")
+        run_tests()
 
     
           
