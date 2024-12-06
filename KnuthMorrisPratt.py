@@ -2,7 +2,7 @@
 class KnuthMorrisPratt:
 
     def __init__(self, pattern):
-        this.pattern = pattern    
+        self.pattern = pattern    
 
     def compute_prefix_function(self, pattern):
         m = len(pattern)
