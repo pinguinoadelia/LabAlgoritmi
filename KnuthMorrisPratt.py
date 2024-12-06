@@ -16,6 +16,22 @@ class KnuthMorrisPratt:
             pi[q] = k
         return pi
     
+    def search(self, text):
+        n = len(text)
+        m = len(self.pattern)
+        q = 0
+        matches = []
+        for i in range (n):
+            while q > 0 and self.pattern[q] != text[i]:
+                q = self.pi[q - i]
+            if self.pattern[q] == text[i]:
+                q += 1
+            if q == m:
+                matches.append(i - m + 1)
+                q = self.pi[q - 1]
+        return matches        
+
+    
           
 
 
