@@ -33,6 +33,15 @@ class KnuthMorrisPratt:
 
     def print_prefix_function(self):
         print(f"Funzione prefisso (π) per il pattern '{self.pattern}': {self.pi}")
+
+    if __name__ == "__main__":
+        pattern = "ababaca"
+        text = "ababcabababaca"
+        kmp = KnuthMorrisPratt(pattern)
+        kmp.print_prefix_function
+        matches = kmp.search(text)
+        print(f"Il pattern è stato trovato alle posizioni: {matches}")
+
     
           
 
