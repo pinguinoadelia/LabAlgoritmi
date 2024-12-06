@@ -1,9 +1,9 @@
 import time
 import os
 import sys
-
-from naive_string_matching import NaiveStringMatching
 from KnuthMorrisPratt import KnuthMorrisPratt
+from naive_string_matching import NaiveStringMatching
+
 
 #Imposta il limite di ricorsione per evitare problemi con input molto grandi
 sys.setrecursionlimit(10000)
@@ -31,13 +31,13 @@ def execute_naive(text, pattern):
     elapsed_time = time.time() - start_time
     return result, elapsed_time
 
-def execute_KMP(text, pattern):
+def execute_kmp(text, pattern):
     """
     Esegue l'algoritmo Knuth-Morris-Pratt (KMP).
     """
-    matcher = KnuthMorrisPratt(pattern)  # Inizializza KMP
+    matcher = KnuthMorrisPratt(pattern)
     start_time = time.time()
-    result = matcher.search(text)       # Chiama il metodo search
+    result = matcher.search(text)
     elapsed_time = time.time() - start_time
     return result, elapsed_time
 

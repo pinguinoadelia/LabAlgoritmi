@@ -7,7 +7,7 @@ class NaiveStringMatching:
     Trova tutte le occorrenze di un pattern in un testo fornito.
     """
 
-    def __init__(self, text:str, pattern:str):
+    def __init__(self, text, pattern):
 
         """
         Inizializza l'istanza con il testo e il pattern forniti.
