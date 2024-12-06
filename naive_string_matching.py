@@ -13,5 +13,20 @@ class NaiveStringMatching:
             if self.text[s:s + m] == self.pattern:
                 results.append(s)
         return results
+    
+    def display_matches(self):
+        matches = self.find_pattern()
+        if matches:
+            print(f"Il pattern '{self.pattern}' è stato trovato nelle posizioni: {matches}")
+        else:
+            print(f"Il pattern '{self.pattern}' non è stato trovato nel testo")    
+
+    
+
+
+
+
+
+
 
     
