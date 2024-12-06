@@ -1,10 +1,17 @@
+from KnuthMorrisPratt import KnuthMorrisPratt
 
 class KnuthMorrisPratt:
 
     def __init__(self, pattern):
+        """
+        Inizializza la classe con il pattern e calcola la funzione prefisso.
+        """
         self.pattern = pattern    
 
     def compute_prefix_function(self, pattern):
+        """
+        Calcola la funzione prefisso per il pattern.
+        """
         m = len(pattern)
         pi = [0] * m
         k = 0
@@ -17,6 +24,9 @@ class KnuthMorrisPratt:
         return pi
     
     def search(self, text):
+        """
+        Esegue il pattern matching sul testo usando il pattern predefinito.
+        """
         n = len(text)
         m = len(self.pattern)
         q = 0
@@ -32,9 +42,15 @@ class KnuthMorrisPratt:
         return matches     
 
     def print_prefix_function(self):
+        """
+        Stampa l'array della funzione prefisso.
+        """
         print(f"Funzione prefisso (π) per il pattern '{self.pattern}': {self.pi}")
 
     if __name__ == "__main__":
+        """
+        Esempio di utilizzo della classe KnuthMorrisPratt per il pattern matching.
+         """
         pattern = "ababaca"
         text = "ababcabababaca"
         kmp = KnuthMorrisPratt(pattern)
