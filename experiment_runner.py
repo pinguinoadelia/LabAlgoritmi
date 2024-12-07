@@ -20,3 +20,7 @@ class ExperimentRunner:
         elapsed_time = time.time() - start_time
         return elapsed_time
     
+    def generate_random_string(self,length, charset = "abcdefghijklmnopqrstuvwxyz"):
+        return ''.join(random.choice(charset) for _ in range(length))
+    
+    
