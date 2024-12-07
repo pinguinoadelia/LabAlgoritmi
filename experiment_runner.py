@@ -1,5 +1,7 @@
 import time
 import random
+from naive_string_matching import NaiveStringMatching
+from knuth_morris_pratt import KnuthMorrisPratt
 
 class ExperimentRunner:
 
