@@ -59,4 +59,14 @@ class ExperimentRunner:
             results.append({'test': 'Pattern non presente', 'size': size, 'naive_time': naive_time, 'kmp_time': kmp_time})
         return results
 
-    
+    def display_results(self, results):
+        print("\nRisultati degli esperimenti\n")
+        print(f"{'Test':<30}{'Dimensione':<10}{'Tempo Naive (s)':<20}{'Tempo KMP (s)':<20}")
+        print("=" * 80)
+        for result in results:
+            test = result['test']
+            size = result['size']
+            naive_time = result['naive_time']
+            kmp_time = result['kmp_time']
+            print(f"{test:<30}{size:<10}{naive_time:<20.6f}{kmp_time:<20.6f}")
+        print("\n")
