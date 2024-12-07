@@ -66,6 +66,7 @@ def run_tests():
         print(f"Tempo KMP: {kmp_time:.6f}s")
         print("-" * 40)
 
+#Esecuzione degli esperimenti
 def run_experiments():
     """Esegue una serie di esperimenti volti a confrontare gli algoritmi Naive e KMP."""
     runner = ExperimentRunner()
