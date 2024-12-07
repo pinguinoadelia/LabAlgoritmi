@@ -13,3 +13,10 @@ class ExperimentRunner:
         elapsed_time = time.time() - start_time
         return elapsed_time
     
+    def execute_kmp(self, text, pattern):
+        matcher = KnuthMorrisPratt(pattern)
+        start_time = time.time()
+        result = matcher.search(text)
+        elapsed_time = time.time() - start_time
+        return elapsed_time
+    
