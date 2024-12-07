@@ -1,6 +1,7 @@
 import time
 from naive_string_matching import NaiveStringMatching
 from KnuthMorrisPratt import KnuthMorrisPratt
+from experiment_runner import ExperimentRunner
 
 # CASI DI TEST
 test_cases = [
@@ -12,8 +13,6 @@ test_cases = [
     {"text": "a" * 100000, "pattern": "a" * 50000},
     {"text": "abababababababababababababababababababababababababababababababababababab", "pattern": "abababababababababababab"},
     {"text": "a" * 1000 + "b" * 1000, "pattern": "ab" * 500},
-
-    # Nuovi test aggiunti per bilanciare i casi
     {"text": "abcdefgh", "pattern": "xyz"},  
     {"text": "aaaaaa", "pattern": "a"},     
     {"text": "a", "pattern": "aaaa"},       
@@ -67,11 +66,19 @@ def run_tests():
         print(f"Tempo KMP: {kmp_time:.6f}s")
         print("-" * 40)
 
+def run_experiments():
+    """Esegue una serie di esperimenti volti a confrontare gli algoritmi Naive e KMP."""
+    runner = ExperimentRunner()
+    print("\nEsecuzione degli esperimenti per confrontare le prestazioni degli algoritmi...\n")
+    experiment_results = runner.run_experiments()
+    runner.display_results(experiment_results)
+
 # PROGRAMMA PRINCIPALE
 if __name__ == "__main__":
     print("\n###########################")
     print("# PROGRAMMA STRING MATCHING #")
     print("###########################\n")
     run_tests()
+    run_experiments()
     print("FINE")
 
