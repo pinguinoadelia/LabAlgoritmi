@@ -1,4 +1,5 @@
 class NaiveStringMatching:
+
     def __init__(self, text, pattern):
         self.text = text
         self.pattern = pattern

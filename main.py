@@ -33,6 +33,7 @@ def execute_naive(text, pattern):
     elapsed_time = time.time() - start_time
     return result, elapsed_time
 
+
 def execute_kmp(text, pattern):
     matcher = KnuthMorrisPratt(pattern)
     start_time = time.time()
@@ -43,7 +44,7 @@ def execute_kmp(text, pattern):
 # ESECUZIONE DEI TEST
 def run_tests():
     print("Esecuzione dei test...\n")
-    results = []  # Per raccogliere i dati per i grafici
+    results = []  # Per salvare i dati dei tempi di esecuzione
     for i, test in enumerate(test_cases, 1):
         text = test["text"]
         pattern = test["pattern"]
@@ -68,8 +69,8 @@ def run_tests():
         print(f"Tempo Naive: {naive_time:.6f}s")
         print(f"Tempo KMP: {kmp_time:.6f}s")
         print("-" * 40)
-
-        # Salva i dati per la visualizzazione dei grafici
+        
+        # Salva i risultati per i grafici
         results.append({
             'test_index': i,
             'text_length': len(text),
@@ -77,12 +78,9 @@ def run_tests():
             'naive_time': naive_time,
             'kmp_time': kmp_time
         })
-    
-    # Converti i risultati in DataFrame per una migliore visualizzazione
-    df = pd.DataFrame(results)
 
-    # Visualizzazione della tabella dei risultati
-    print("\nTest Results:\n", df)
+    # Creazione DataFrame
+    df = pd.DataFrame(results)
 
     # Generazione e visualizzazione dei grafici
     plt.figure(figsize=(10, 6))
@@ -97,17 +95,16 @@ def run_tests():
     plt.show()
 
 
-# ESECUZIONE DEGLI ESPERIMENTI
+#Esecuzione degli esperimenti
 def run_experiments():
     """Esegue una serie di esperimenti volti a confrontare gli algoritmi Naive e KMP."""
     runner = ExperimentRunner()
     print("\nEsecuzione degli esperimenti per confrontare le prestazioni degli algoritmi...\n")
     experiment_results = runner.run_experiments()
     runner.display_results(experiment_results)
-    df = pd.DataFrame(experiment_results)
 
-    # Visualizzazione della tabella dei risultati
-    print("\nTest Results:\n", df)
+    # Creazione DataFrame
+    df = pd.DataFrame(experiment_results)
 
     # Generazione e visualizzazione dei grafici
     for test_name in df['test'].unique():
