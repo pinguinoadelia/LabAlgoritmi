@@ -74,7 +74,7 @@ class ExperimentRunner:
             results.append({'test': 'Testo casuale e Pattern casuale', 'size': size, 'naive_time': naive_time, 'kmp_time': kmp_time})
 
         # Test 2: Testo lungo e pattern breve
-        for size in [1000, 10000, 50000]:
+        for size in [1000, 1000, 10000]:
             text = self.generate_random_string(size)
             pattern = self.generate_random_string(5)
             naive_time = self.execute_naive(text, pattern)
