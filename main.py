@@ -1,4 +1,6 @@
 import time
+import matplotlib.pyplot as plt
+import pandas as pd
 from naive_string_matching import NaiveStringMatching
 from KnuthMorrisPratt import KnuthMorrisPratt
 from experiment_runner import ExperimentRunner
@@ -41,6 +43,7 @@ def execute_kmp(text, pattern):
 # ESECUZIONE DEI TEST
 def run_tests():
     print("Esecuzione dei test...\n")
+    results = []  # Per raccogliere i dati per i grafici
     for i, test in enumerate(test_cases, 1):
         text = test["text"]
         pattern = test["pattern"]
@@ -66,13 +69,58 @@ def run_tests():
         print(f"Tempo KMP: {kmp_time:.6f}s")
         print("-" * 40)
 
-#Esecuzione degli esperimenti
+        # Salva i dati per la visualizzazione dei grafici
+        results.append({
+            'test_index': i,
+            'text_length': len(text),
+            'pattern_length': len(pattern),
+            'naive_time': naive_time,
+            'kmp_time': kmp_time
+        })
+    
+    # Converti i risultati in DataFrame per una migliore visualizzazione
+    df = pd.DataFrame(results)
+
+    # Visualizzazione della tabella dei risultati
+    print("\nTest Results:\n", df)
+
+    # Generazione e visualizzazione dei grafici
+    plt.figure(figsize=(10, 6))
+    plt.plot(df['test_index'], df['naive_time'], marker='o', label='Naive Algorithm')
+    plt.plot(df['test_index'], df['kmp_time'], marker='o', label='KMP Algorithm')
+    plt.xlabel('Indice del Test')
+    plt.ylabel('Tempo di esecuzione (secondi)')
+    plt.title('Confronto dei tempi di esecuzione per ciascun test')
+    plt.xticks(df['test_index'])
+    plt.legend()
+    plt.grid(True, linestyle='--', alpha=0.6)
+    plt.show()
+
+
+# ESECUZIONE DEGLI ESPERIMENTI
 def run_experiments():
     """Esegue una serie di esperimenti volti a confrontare gli algoritmi Naive e KMP."""
     runner = ExperimentRunner()
     print("\nEsecuzione degli esperimenti per confrontare le prestazioni degli algoritmi...\n")
     experiment_results = runner.run_experiments()
     runner.display_results(experiment_results)
+    df = pd.DataFrame(experiment_results)
+
+    # Visualizzazione della tabella dei risultati
+    print("\nTest Results:\n", df)
+
+    # Generazione e visualizzazione dei grafici
+    for test_name in df['test'].unique():
+        subset = df[df['test'] == test_name]
+        plt.figure(figsize=(10, 6))
+        plt.plot(subset['size'], subset['naive_time'], marker='o', label='Naive Algorithm')
+        plt.plot(subset['size'], subset['kmp_time'], marker='o', label='KMP Algorithm')
+        plt.xlabel('Dimensione del testo')
+        plt.ylabel('Tempo di esecuzione (secondi)')
+        plt.title(f'Confronto dei tempi di esecuzione per {test_name}')
+        plt.legend()
+        plt.grid(True, linestyle='--', alpha=0.6)
+        plt.show()
 
 # PROGRAMMA PRINCIPALE
 if __name__ == "__main__":
@@ -82,4 +130,3 @@ if __name__ == "__main__":
     run_tests()
     run_experiments()
     print("FINE")
-
